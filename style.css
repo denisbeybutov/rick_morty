@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: grey;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+#search__input {
+    width: 230px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.size {
+    height: 150px;
+    width: 150px;
+}
+
+.person-list{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.person-card {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 150px;
+    height: 205px;
+    text-align: center;
+    background-color: rgb(255, 255, 255,.1);
+}
