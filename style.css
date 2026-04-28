@@ -43,4 +43,21 @@ body{
     height: 205px;
     text-align: center;
     background-color: rgb(255, 255, 255,.1);
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .size {
+        height: 80px;
+        width: 80px;
+    }
+
+    .person-card {                                
+        width: 80px;
+        height: 130px;                
+    }
+
+    .person-card p {
+        font-size: 14px;
+    }
 }
