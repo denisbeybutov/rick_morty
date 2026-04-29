@@ -1,4 +1,4 @@
-//переменные
+//-----------------переменные
 const inputElement = document.querySelector('#search__input');
 const personListElement = document.querySelector('.person-list');
 const navigationPage = document.querySelector('.navigation__page');
@@ -12,11 +12,14 @@ const personInformation = document.querySelector('.person-information');
 let currentPage = 1;
 let currentPageLink = null;
 
-// функции
+//-------------------функции
+
+//задержка для дебаунса
 function delay(ms){
     return new Promise(resolve => setTimeout(resolve,ms))
 }
 
+// запрос списка персонажей по имени
 async function getPersonList(namePerson) {
     
     await delay(400);
@@ -42,6 +45,7 @@ async function getPersonList(namePerson) {
    
 }
 
+// отображение однйо карточки персонажа
 function showPersonElements(person){
     
 
@@ -60,6 +64,7 @@ function showPersonElements(person){
 
 }
 
+// отображение всех карточек песронажей на странице
 function showPage(currentPage, personList) {
     personListElement.innerHTML = '';
     personInformation.innerHTML = '';
@@ -67,16 +72,19 @@ function showPage(currentPage, personList) {
     navigationPage.innerHTML = `Страница ${currentPage} из ${personList.info.pages}`;
 }
 
+// показать лоадер
 function showLoader() {
     loader.innerHTML = 'Загрузка...';
     personListElement.innerHTML = '';
     personInformation.innerHTML = '';
 }
 
+// скрыть лоадер
 function hideLoader(){
     loader.innerHTML = '';
 }
 
+// обработчик кнопки вперед
 async function handleNextPage(){
         
         
@@ -100,6 +108,7 @@ async function handleNextPage(){
         else return 
 }
 
+// обработчик кнопки назад
 async function handlePrevPage(){
          
         
@@ -123,6 +132,7 @@ async function handlePrevPage(){
         else return;
 }
 
+// обработчик клика по карточке
 function handleClickCard(event) {
     let card;
         if(event.target.dataset.personCard){            
@@ -137,12 +147,14 @@ function handleClickCard(event) {
 
 }
 
+// убрать обработчики с кнопок и карточек
 function cleanEventListeners() {    
     personListElement.removeEventListener('click', handleClickCard);    
     nextButton.removeEventListener('click', handleNextPage);                     
     prevButton.removeEventListener('click', handlePrevPage);
 }
 
+// обработчик поля ввода 
 async function showPersonList(event) {        
     // показываем лоадер
     showLoader();
